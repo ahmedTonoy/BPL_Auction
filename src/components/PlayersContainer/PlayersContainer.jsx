@@ -37,7 +37,6 @@ const PlayersContainer = ({
       ) : (
         <SelectedPlayers
           selectedPlayers={selectedPlayers}
-          selectedPlayerIds={selectedPlayerIds}
           setSelectedPlayerIds={setSelectedPlayerIds}
         />
       )}

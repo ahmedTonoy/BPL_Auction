@@ -1,19 +1,14 @@
-import PlayerCard from "../PlayerCard/PlayerCard";
+import SelectedPlayerCard from "../SelectedPlayerCard/SelectedPlayerCard";
 
-const SelectedPlayers = ({
-  selectedPlayers,
-  selectedPlayerIds,
-  setSelectedPlayerIds,
-}) => {
+const SelectedPlayers = ({ selectedPlayers, setSelectedPlayerIds }) => {
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-3 px-4 md:px-0">
+    <div className="grid grid-cols-1 gap-4 px-4 md:px-0">
       {selectedPlayers.map((player) => (
-        <PlayerCard
+        <SelectedPlayerCard
           key={player.id}
           player={player}
-          selectedPlayerIds={selectedPlayerIds}
           setSelectedPlayerIds={setSelectedPlayerIds}
-        ></PlayerCard>
+        ></SelectedPlayerCard>
       ))}
     </div>
   );

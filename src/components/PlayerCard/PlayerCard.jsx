@@ -5,6 +5,7 @@ import allRounder from "../../assets/all-rounder.png";
 
 const PlayerCard = ({ player, selectedPlayerIds, setSelectedPlayerIds }) => {
   const {
+    id,
     player_name,
     player_image,
     country,
@@ -22,9 +23,7 @@ const PlayerCard = ({ player, selectedPlayerIds, setSelectedPlayerIds }) => {
     setSelectedPlayerIds((prev) => {
       const newSet = new Set(prev);
 
-      if (newSet.has(playerId)) {
-        newSet.delete(playerId);
-      } else {
+      if (!newSet.has(playerId)) {
         newSet.add(playerId);
       }
 
@@ -77,7 +76,7 @@ const PlayerCard = ({ player, selectedPlayerIds, setSelectedPlayerIds }) => {
           Price: $<span>{price_usd}</span>
         </p>
         <button
-          onClick={() => handleClick(player.id)}
+          onClick={() => handleClick(id)}
           className={`btn ${isSelected ? "bg-[#81fc1dee]" : "bg-[#b182f2] text-white"}`}
         >
           {isSelected ? "Selected" : "Choose Player"}
