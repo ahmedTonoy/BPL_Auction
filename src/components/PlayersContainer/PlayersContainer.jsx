@@ -13,6 +13,8 @@ const PlayersContainer = ({
   isAvailablePage,
   selectedPlayerIds,
   setSelectedPlayerIds,
+  availableCoins,
+  setAvailableCoins,
 }) => {
   const availablePlayers = use(playersPromise);
 
@@ -33,11 +35,15 @@ const PlayersContainer = ({
           availablePlayers={availablePlayers}
           selectedPlayerIds={selectedPlayerIds}
           setSelectedPlayerIds={setSelectedPlayerIds}
+          availableCoins={availableCoins}
+          setAvailableCoins={setAvailableCoins}
         />
       ) : (
         <SelectedPlayers
           selectedPlayers={selectedPlayers}
           setSelectedPlayerIds={setSelectedPlayerIds}
+          availableCoins={availableCoins}
+          setAvailableCoins={setAvailableCoins}
         />
       )}
     </>

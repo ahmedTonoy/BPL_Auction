@@ -3,7 +3,13 @@ import ball from "../../assets/ball.png";
 import gloves from "../../assets/gloves.png";
 import allRounder from "../../assets/all-rounder.png";
 
-const PlayerCard = ({ player, selectedPlayerIds, setSelectedPlayerIds }) => {
+const PlayerCard = ({
+  player,
+  selectedPlayerIds,
+  setSelectedPlayerIds,
+  availableCoins,
+  setAvailableCoins,
+}) => {
   const {
     id,
     player_name,
@@ -29,6 +35,8 @@ const PlayerCard = ({ player, selectedPlayerIds, setSelectedPlayerIds }) => {
 
       return newSet;
     });
+
+    setAvailableCoins(availableCoins - parseInt(price_usd));
   };
 
   return (

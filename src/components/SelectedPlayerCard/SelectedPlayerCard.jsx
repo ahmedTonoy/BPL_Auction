@@ -2,8 +2,14 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
-const SelectedPlayerCard = ({ player, setSelectedPlayerIds }) => {
-  const { id, player_name, player_image, country_flag, role } = player;
+const SelectedPlayerCard = ({
+  player,
+  setSelectedPlayerIds,
+  availableCoins,
+  setAvailableCoins,
+}) => {
+  const { id, player_name, player_image, country_flag, role, price_usd } =
+    player;
 
   const handleClick = (playerId) => {
     setSelectedPlayerIds((prev) => {
@@ -11,6 +17,8 @@ const SelectedPlayerCard = ({ player, setSelectedPlayerIds }) => {
       newSet.delete(playerId);
       return newSet;
     });
+
+    setAvailableCoins(availableCoins + parseInt(price_usd));
   };
 
   return (

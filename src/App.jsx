@@ -35,6 +35,7 @@ function App() {
           isAvailablePage={isAvailablePage}
           selectedPlayerIds={selectedPlayerIds}
           setSelectedPlayerIds={setSelectedPlayerIds}
+          availableCoins={availableCoins}
           setAvailableCoins={setAvailableCoins}
         />
       </Suspense>
