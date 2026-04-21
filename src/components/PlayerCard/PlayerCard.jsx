@@ -26,17 +26,24 @@ const PlayerCard = ({
   const isSelected = selectedPlayerIds.has(player.id);
 
   const handleClick = (playerId) => {
-    setSelectedPlayerIds((prev) => {
-      const newSet = new Set(prev);
+    if (availableCoins < parseInt(price_usd)) {
+      console.log("Hello");
+      alert("Not sufficient coin to buy this player");
+    } else {
+      setSelectedPlayerIds((prev) => {
+        const newSet = new Set(prev);
 
-      if (!newSet.has(playerId)) {
-        newSet.add(playerId);
+        if (!newSet.has(playerId)) {
+          newSet.add(playerId);
+        }
+
+        return newSet;
+      });
+
+      if (!isSelected) {
+        setAvailableCoins(availableCoins - parseInt(price_usd));
       }
-
-      return newSet;
-    });
-
-    setAvailableCoins(availableCoins - parseInt(price_usd));
+    }
   };
 
   return (
