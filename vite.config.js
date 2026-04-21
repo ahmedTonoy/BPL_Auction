@@ -8,5 +8,5 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-  base: '/BPL_Auction'
+  base: '/BPL_Auction/'
 })
