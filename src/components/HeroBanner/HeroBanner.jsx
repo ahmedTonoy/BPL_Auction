@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import heroImg from "../../assets/bg-shadow.png";
 import bannerImg from "../../assets/banner-main.png";
 
-const HeroBanner = () => {
+const HeroBanner = ({ setAvailableCoins }) => {
+  const [isCreditClaimed, setIsCreditClaimed] = useState(false);
+
+  const handleCreditClaim = () => {
+    console.log("Hello");
+    if (!isCreditClaimed) {
+      setAvailableCoins(10000000);
+      setIsCreditClaimed(true);
+    }
+  };
+
   return (
     <div
       style={{ backgroundImage: `url(${heroImg})` }}
@@ -18,7 +28,12 @@ const HeroBanner = () => {
       </h1>
       <p className="text-[#ffffffb3]">Beyond Boundaries Beyond Limits</p>
       <div className="p-1.5 border border-[#E7FE29] w-fit rounded-lg">
-        <button className="btn bg-[#E7FE29]">Claim Free Credit</button>
+        <button
+          className={`btn ${isCreditClaimed ? "bg-[#16ee0f]" : "bg-[#E7FE29]"}`}
+          onClick={handleCreditClaim}
+        >
+          {isCreditClaimed ? "Free Credit Claimed" : "Claim Free Credit"}
+        </button>
       </div>
     </div>
   );

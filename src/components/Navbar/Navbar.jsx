@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoins } from "@fortawesome/free-solid-svg-icons";
 import navImg from "../../assets/logo.png";
 
-const Navbar = () => {
+const Navbar = ({ availableCoins }) => {
   return (
     <div>
       <div className="navbar bg-base-100 px-4 md:px-0">
@@ -27,7 +27,7 @@ const Navbar = () => {
             </li>
           </ul>
           <button className="btn">
-            <span>10000000</span>
+            <span>{availableCoins}</span>
             <FontAwesomeIcon
               className="text-yellow-500 text-lg"
               icon={faCoins}
@@ -35,8 +35,9 @@ const Navbar = () => {
           </button>
         </div>
         <div className="navbar-end flex-none md:hidden">
+          <h1>Hello</h1>
           <button className="btn">
-            <span>10000000</span>
+            <span>{availableCoins}</span>
             <FontAwesomeIcon
               className="text-yellow-500 text-lg"
               icon={faCoins}

@@ -11,11 +11,12 @@ const PlayersContainer = lazy(
 function App() {
   const [isAvailablePage, setIsAvailablePage] = useState(true);
   const [selectedPlayerIds, setSelectedPlayerIds] = useState(new Set());
+  const [availableCoins, setAvailableCoins] = useState(0);
 
   return (
     <>
-      <Navbar />
-      <HeroBanner />
+      <Navbar availableCoins={availableCoins} />
+      <HeroBanner setAvailableCoins={setAvailableCoins} />
 
       <SectionSelector
         isAvailablePage={isAvailablePage}
@@ -34,6 +35,7 @@ function App() {
           isAvailablePage={isAvailablePage}
           selectedPlayerIds={selectedPlayerIds}
           setSelectedPlayerIds={setSelectedPlayerIds}
+          setAvailableCoins={setAvailableCoins}
         />
       </Suspense>
     </>
