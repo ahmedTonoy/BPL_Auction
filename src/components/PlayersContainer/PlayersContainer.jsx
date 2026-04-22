@@ -42,7 +42,6 @@ const PlayersContainer = ({
         <SelectedPlayers
           selectedPlayers={selectedPlayers}
           setSelectedPlayerIds={setSelectedPlayerIds}
-          availableCoins={availableCoins}
           setAvailableCoins={setAvailableCoins}
         />
       )}

@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import heroImg from "../../assets/bg-shadow.png";
 import bannerImg from "../../assets/banner-main.png";
+import { toast } from "react-toastify";
 
 const HeroBanner = ({ setAvailableCoins }) => {
   const [isCreditClaimed, setIsCreditClaimed] = useState(false);
 
   const handleCreditClaim = () => {
-    console.log("Hello");
     if (!isCreditClaimed) {
       setAvailableCoins(10000000);
       setIsCreditClaimed(true);
+      toast.success("Coins claim successful", { position: "top-center" });
     }
   };
 

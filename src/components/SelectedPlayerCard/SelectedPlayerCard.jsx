@@ -2,24 +2,8 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 
-const SelectedPlayerCard = ({
-  player,
-  setSelectedPlayerIds,
-  availableCoins,
-  setAvailableCoins,
-}) => {
-  const { id, player_name, player_image, country_flag, role, price_usd } =
-    player;
-
-  const handleClick = (playerId) => {
-    setSelectedPlayerIds((prev) => {
-      const newSet = new Set(prev);
-      newSet.delete(playerId);
-      return newSet;
-    });
-
-    setAvailableCoins(availableCoins + parseInt(price_usd));
-  };
+const SelectedPlayerCard = ({ player, onDelete }) => {
+  const { player_name, player_image, country_flag, role } = player;
 
   return (
     <div className="flex shadow justify-between items-center border border-[#1313131a] p-2 rounded-2xl">
@@ -39,7 +23,7 @@ const SelectedPlayerCard = ({
       </div>
       <button
         className="p-3 text-red-500 font-bold text-xl cursor-pointer"
-        onClick={() => handleClick(id)}
+        onClick={() => onDelete(player)}
       >
         <FontAwesomeIcon icon={faTrashCan} />
       </button>

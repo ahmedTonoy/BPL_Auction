@@ -1,5 +1,6 @@
 import { Suspense, useState, lazy } from "react";
 import "./App.css";
+import { ToastContainer } from "react-toastify";
 import HeroBanner from "./components/HeroBanner/HeroBanner";
 import Navbar from "./components/Navbar/Navbar";
 import SectionSelector from "./components/SectionSelector/SectionSelector";
@@ -39,6 +40,8 @@ function App() {
           setAvailableCoins={setAvailableCoins}
         />
       </Suspense>
+
+      <ToastContainer />
     </>
   );
 }

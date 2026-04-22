@@ -3,15 +3,8 @@ import ball from "../../assets/ball.png";
 import gloves from "../../assets/gloves.png";
 import allRounder from "../../assets/all-rounder.png";
 
-const PlayerCard = ({
-  player,
-  selectedPlayerIds,
-  setSelectedPlayerIds,
-  availableCoins,
-  setAvailableCoins,
-}) => {
+const PlayerCard = ({ player, isSelected, onSelect }) => {
   const {
-    id,
     player_name,
     player_image,
     country,
@@ -22,29 +15,6 @@ const PlayerCard = ({
     bowling_style,
     price_usd,
   } = player;
-
-  const isSelected = selectedPlayerIds.has(player.id);
-
-  const handleClick = (playerId) => {
-    if (availableCoins < parseInt(price_usd)) {
-      console.log("Hello");
-      alert("Not sufficient coin to buy this player");
-    } else {
-      setSelectedPlayerIds((prev) => {
-        const newSet = new Set(prev);
-
-        if (!newSet.has(playerId)) {
-          newSet.add(playerId);
-        }
-
-        return newSet;
-      });
-
-      if (!isSelected) {
-        setAvailableCoins(availableCoins - parseInt(price_usd));
-      }
-    }
-  };
 
   return (
     <div className="card border border-gray-400 p-4">
@@ -91,8 +61,13 @@ const PlayerCard = ({
           Price: $<span>{price_usd}</span>
         </p>
         <button
-          onClick={() => handleClick(id)}
-          className={`btn ${isSelected ? "bg-[#81fc1dee]" : "bg-[#b182f2] text-white"}`}
+          onClick={() => onSelect(player)}
+          disabled={isSelected}
+          className={`btn ${
+            isSelected
+              ? "bg-[#81fc1dee] text-black cursor-not-allowed"
+              : "bg-[#b182f2] text-white"
+          }`}
         >
           {isSelected ? "Selected" : "Choose Player"}
         </button>
