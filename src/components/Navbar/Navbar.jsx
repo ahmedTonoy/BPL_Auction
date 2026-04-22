@@ -8,7 +8,7 @@ const Navbar = ({ availableCoins }) => {
       <div className="navbar bg-base-100 px-4 md:px-0">
         <div className="navbar-start flex-1">
           <a className="text-xl">
-            <img className="w-12 h-12" src={navImg} />
+            <img className="w-18 h-15" src={navImg} />
           </a>
         </div>
         <div className="navbar-end hidden md:flex flex-none">
